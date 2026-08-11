@@ -9,6 +9,7 @@ Snake AI is a Python reinforcement learning project that turns a Pygame Snake en
 - A random baseline agent.
 - A PyTorch DQN agent with replay memory, target network updates, and epsilon-greedy exploration.
 - Training and evaluation scripts.
+- Repeatable benchmarking against a random baseline.
 - Checkpoint saving and resume support.
 - CSV logging and Matplotlib dashboards.
 - Experiment tracking for a stronger 11-feature v1 run and a later 22-feature v2 experiment.
@@ -54,6 +55,7 @@ v2 dashboard:
 ```text
 .
 ├── agent.py              # RandomAgent, DQNAgent, state feature extraction
+├── benchmark.py          # random vs DQN benchmark runner
 ├── compare_dashboard.py  # v1 vs v2 dashboard generator
 ├── config.py             # hyperparameters and experiment defaults
 ├── dashboard.py          # single-run dashboard generator
@@ -127,6 +129,22 @@ Compare random baseline and DQN:
 python train.py --eval --agent both --eval-episodes 100
 ```
 
+## Benchmark
+
+Run a repeatable benchmark and append results to `logs/state_v2/benchmark.csv`:
+
+```bash
+python benchmark.py --agent both --episodes 100
+```
+
+Print benchmark results without saving:
+
+```bash
+python benchmark.py --agent both --episodes 100 --no-save
+```
+
+The benchmark records average score, median score, best score, and average episode length. This gives future training runs a cleaner comparison against the random baseline.
+
 ## Dashboards
 
 Generate the current experiment dashboard:
@@ -144,6 +162,7 @@ python compare_dashboard.py
 ## Notes For Reviewers
 
 - Checkpoints and raw logs can become large, so they are excluded from Git.
+- Benchmark CSV outputs are also generated locally and excluded from Git.
 - `PROJECT_HISTORY.md` records the major implementation iterations and experimental observations.
 - The v2 model starts from scratch because its input size changed from 11 to 22.
 - The next likely improvement is reward shaping or a revised feature design, not simply longer v2 training.

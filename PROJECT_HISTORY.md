@@ -547,6 +547,60 @@ Research note:
 
 - This is useful negative evidence. It shows that adding features can make the learning problem harder if the new representation is not paired with a training strategy that can exploit it.
 
+## Iteration 13: Repeatable Benchmarking Workflow
+
+Files involved:
+
+- `benchmark.py`
+- `README.md`
+- `PROJECT_HISTORY.md`
+
+What changed:
+
+- Added a dedicated benchmark script that evaluates:
+
+```text
+random agent
+DQN checkpoint
+both agents side by side
+```
+
+- The benchmark can append comparable rows to:
+
+```text
+logs/state_v2/benchmark.csv
+```
+
+- Each benchmark row records:
+
+```text
+timestamp_utc
+agent
+episodes
+checkpoint
+average_score
+median_score
+best_score
+average_episode_length
+```
+
+Why:
+
+- Training logs show how learning changes episode by episode, but they are not the same as a controlled evaluation.
+- A benchmark gives the project a repeatable way to compare the trained DQN against a random baseline.
+- This makes future improvements easier to defend with evidence instead of visual impressions alone.
+
+Example usage:
+
+```bash
+.venv/bin/python benchmark.py --agent both --episodes 100
+```
+
+Public repo note:
+
+- Raw benchmark CSVs remain ignored by Git, just like training logs and checkpoints.
+- The script itself is committed so anyone can reproduce the benchmark locally after training or downloading a checkpoint.
+
 ## Current Research Notes
 
 Main metric to watch:
