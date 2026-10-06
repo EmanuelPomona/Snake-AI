@@ -26,6 +26,8 @@ best score: 35
 final average_score_100: 8.20
 ```
 
+For comparison, the random baseline agent averages 0.13 points per game (best score 1) over 100 games, measured with `python benchmark.py --agent random --episodes 100 --no-save`.
+
 The v2 22-feature experiment added lookahead and reachable-space features, but early results were worse:
 
 ```text
