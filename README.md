@@ -47,7 +47,8 @@ Initial Runs:
 <img width="1282" height="1008" alt="1537842B-975D-4581-B97F-D29273002C47_1_206_a" src="https://github.com/user-attachments/assets/a08cfac8-c047-49f8-a594-6d3bc0ec0008" />
 
 Latter Runs:
-<img width="454" height="360" alt="8EE625FC-34F2-4A41-8CEB-952A552BCECC_4_5005_c" src="https://github.com/user-attachments/assets/1378c337-a772-4df5-94ac-32ab1926270d" />
+
+<img width="1282" height="1008" alt="8EE625FC-34F2-4A41-8CEB-952A552BCECC_4_5005_c" src="https://github.com/user-attachments/assets/1378c337-a772-4df5-94ac-32ab1926270d" />
 
 
 Comparison dashboard:
